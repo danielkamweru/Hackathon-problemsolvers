@@ -2,7 +2,6 @@
 *A comprehensive React SPA with json-server backend for managing construction site operations.*
 
 ![Project Screenshot](./assets/screenshot.png)  
-> *(Replace this image path with your actual screenshot.)*
 
 ---
 
