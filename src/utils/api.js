@@ -2,7 +2,7 @@ const API_BASE = 'http://localhost:3001';
 
 export const api = {
   // Works
-  getWorks: () => fetch(`${API_BASE}/works?_expand=user`).then(r => r.json()),
+  getWorks: () => fetch(`${API_BASE}/works`).then(r => r.json()),
   getWork: (id) => fetch(`${API_BASE}/works/${id}`).then(r => r.json()),
   createWork: (work) => fetch(`${API_BASE}/works`, {
     method: 'POST',
@@ -25,11 +25,17 @@ export const api = {
 
   // Equipment
   getEquipment: () => fetch(`${API_BASE}/equipment`).then(r => r.json()),
+  createEquipment: (equipment) => fetch(`${API_BASE}/equipment`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(equipment)
+  }).then(r => r.json()),
   updateEquipment: (id, equipment) => fetch(`${API_BASE}/equipment/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(equipment)
   }).then(r => r.json()),
+  deleteEquipment: (id) => fetch(`${API_BASE}/equipment/${id}`, { method: 'DELETE' }),
 
   // Labour Logs
   getLabourLogs: () => fetch(`${API_BASE}/labourLogs?_expand=work`).then(r => r.json()),
@@ -68,5 +74,4 @@ export const api = {
     body: JSON.stringify(user)
   }).then(r => r.json()),
   deleteUser: (id) => fetch(`${API_BASE}/users/${id}`, { method: 'DELETE' })
-
-}
+};
